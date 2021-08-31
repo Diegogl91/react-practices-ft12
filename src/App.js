@@ -40,9 +40,9 @@ const App = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
-    
+
         setCredenciales((prevState) => {
-            return { ...prevState, [name]:value }
+            return { ...prevState, [name]: value }
         })
     }
 
@@ -65,22 +65,28 @@ const App = () => {
         <>
             <LoginForm handleSubmit={handleSubmit} handleChange={handleChange} credenciales={credenciales} setCredenciales={setCredenciales} />
             <h1>Hola Mundo</h1>
-            <input type="text" onChange={(e) => setNombre(e.target.value)}/><br/>
-            <label>{nombre}</label><br/>
+            <input type="text" onChange={(e) => setNombre(e.target.value)} /><br />
+            <label>{nombre}</label><br />
             <button className="btn btn-primary">
                 <i className="fas fa-download"></i>
                 Download
-            </button><br/>
+            </button><br />
 
             <button onClick={() => setVer(!ver)} className="btn btn-warning">
                 Ver component A
-            </button><br/>
+            </button><br />
 
             {
                 ver ? (
                     <ComponentA />
-                ):(
+                ) : (
                     <h4>Sin Datos</h4>
+                )
+            }
+
+            {
+                ver && (
+                    <ComponentA />
                 )
             }
         </>
